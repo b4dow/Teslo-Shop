@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nombre del Proyecto
 
-## Getting Started
+Teslo Shop es una tienda de ropa en línea inspirada en la estética y experiencia de compra de la tienda de Tesla. Ofrece prendas y accesorios de alta calidad a través de una interfaz moderna, minimalista y fácil de usar.
 
-First, run the development server:
+## Tabla de Contenidos
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Requisitos](#requisitos)
+- [Instalación y Uso en Entorno Local](#instalación-y-uso-en-entorno-local)
+- [Uso con Docker](#uso-con-docker)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Variables de Entorno](#variables-de-entorno)
+- [Scripts Disponibles](#scripts-disponibles)
+- [Contribuir](#contribuir)
+- [Licencia](#licencia)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Requisitos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Antes de empezar, asegúrate de tener instalado:
 
-## Learn More
+- [Node.js](https://nodejs.org/) v14 o superior (u otro runtime según tu proyecto)
+- [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
+- [Docker](https://www.docker.com/) y [Docker Compose](https://docs.docker.com/compose/) (opcional, solo si vas a usar contenedores)
+- Base de datos local o servicio remoto (PostgreSQL, MySQL, MongoDB, etc.)
 
-To learn more about Next.js, take a look at the following resources:
+## Instalación y Uso en Entorno Local
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clona este repositorio:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/b4dow/teslo-shop.git
+   cd teslo-shop
+   ```
 
-## Deploy on Vercel
+2. Instala las dependencias:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm install
+   # o si usas yarn
+   yarn install
+   # Si usas bun
+   bun install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Crea un fichero de variables de entorno a partir del ejemplo:
+
+   ```bash
+   cp .env.template .env
+   ```
+
+   Y edita `.env` con tus claves y configuraciones.
+
+4. Levanta la base de datos local (si aplica):
+
+   - MySQL/PostgreSQL: asegúrate de tener el servicio corriendo y crea la base de datos.
+   - MongoDB: ejecuta `mongod` o usa un contenedor Docker.
+
+5. Corre migraciones o seeders (si tu proyecto lo requiere):
+
+   ```bash
+   npm run migrate
+   npm run seed
+   ```
+
+   Ajusta según los scripts definidos.
+
+6. Inicia la aplicación en modo desarrollo:
+
+   ```bash
+   npm run dev
+   ```
+
+7. Accede en tu navegador a `http://localhost:3000` o el puerto que uses.
+
+## Uso con Docker
+
+Si prefieres usar Docker para aislar el entorno, sigue estos pasos:
+
+1. Construye la imagen:
+
+   ```bash
+   docker build -t b4dow/teslo-shop:latest .
+   ```
+
+2. (Opcional) Edita el fichero `docker-compose.yml` para ajustar puertos y volúmenes.
+
+3. Levanta los contenedores:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+4. Verifica que todo esté corriendo:
+
+   ```bash
+   docker-compose ps
+   ```
+
+5. Para detener y eliminar contenedores:
+
+   ```bash
+   docker-compose down
+   ```
+
+## Contribuir
+
+¡Las contribuciones son bienvenidas! Para aportar:
+
+1. Haz un Fork de este repositorio.
+2. Crea una rama con tu feature o bugfix (`git checkout -b feature/nueva-funcion`).
+3. Realiza tus cambios y haz commit (`git commit -m "feat: agrega nueva función"`).
+4. Push a tu rama (`git push origin feature/nueva-funcion`).
+5. Abre un Pull Request describiendo tu cambio.
+
+## Licencia
+
+Este proyecto está bajo la licencia [MIT](LICENSE).
