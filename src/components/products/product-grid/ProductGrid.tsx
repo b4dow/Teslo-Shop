@@ -2,7 +2,7 @@ import { Product } from "@/interfaces";
 import { ProductGridItem } from "@/components";
 
 interface Props {
-  products: Array<Product>;
+  products: Product[];
 }
 
 export const ProductGrid = ({ products }: Props) => {

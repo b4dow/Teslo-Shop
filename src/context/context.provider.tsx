@@ -15,6 +15,7 @@ interface MenuProviderProps {
 
 export const MenuProvider = ({ children }: MenuProviderProps) => {
   const [state, dispatch] = useReducer(UseReducer, InitialState);
+
   return (
     <MenuContext.Provider value={{ state, dispatch }}>
       {children}

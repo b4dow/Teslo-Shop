@@ -1,15 +1,25 @@
 export interface Product {
-  //TODO: id : string
-  description: string;
+  id: string;
+  title: string;
+  description: string | null;
   images: string[];
   inStock: number;
   price: number;
   sizes: Size[];
   slug: string;
   tags: string[];
-  title: string;
-  type: Type;
+  //TODO: type: Type;
   gender: Gender;
+}
+
+export interface CartProduct {
+  id: string;
+  slug: string;
+  title: string;
+  price: number;
+  quantity: number;
+  size: Size;
+  image: string;
 }
 
 export type Gender = "men" | "women" | "kid" | "unisex";
