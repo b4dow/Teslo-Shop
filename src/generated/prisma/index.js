@@ -160,7 +160,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/b4dow/Escritorio/work/devtalles/teslo-shop/src/generated/prisma",
+      "value": "/home/b4dow/Desktop/aludev/work/devtalles/teslo-shop/src/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -174,11 +174,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/b4dow/Escritorio/work/devtalles/teslo-shop/prisma/schema.prisma",
+    "sourceFilePath": "/home/b4dow/Desktop/aludev/work/devtalles/teslo-shop/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../../../prisma",

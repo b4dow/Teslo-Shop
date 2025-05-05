@@ -12,15 +12,15 @@ import { SidebarItem } from "./SidebarItem";
 import { UseMenu } from "@/hook/UseMenu";
 
 export const Sidebar = () => {
-  const { state, dispatch } = UseMenu();
+  const { MenuState, MenuDispatch } = UseMenu();
   return (
     <div>
       {/* Black Background */}
-      {state.isSideMenuOpen && (
+      {MenuState.isSideMenuOpen && (
         <div className="fixed top-0 left-0 w-screen h-screen z-10 bg-black opacity-30"></div>
       )}
       {/* Blur */}
-      {state.isSideMenuOpen && (
+      {MenuState.isSideMenuOpen && (
         <div className="fade-in fixed top-0 left-0 w-screen h-screen z-10 backdrop-filter backdrop-blur-sm"></div>
       )}
       {/* Side Menu */}
@@ -29,14 +29,14 @@ export const Sidebar = () => {
         className={clsx(
           "fixed p-5 right-0 top-0 w-[400px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-700 ease-in",
           {
-            "translate-x-full": !state.isSideMenuOpen,
+            "translate-x-full": !MenuState.isSideMenuOpen,
           },
         )}
       >
         <IoCloseOutline
           size={30}
           className="absolute top-5 right-5 cursor-pointer"
-          onClick={() => dispatch({ type: "CLOSE_MENU" })}
+          onClick={() => MenuDispatch({ type: "CLOSE_MENU" })}
         />
 
         {/* Input */}
