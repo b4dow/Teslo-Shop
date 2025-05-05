@@ -9,18 +9,20 @@ import {
   IoTicketOutline,
 } from "react-icons/io5";
 import { SidebarItem } from "./SidebarItem";
-import { UseMenu } from "@/hook/UseMenu";
+import { MenuStore } from "@/store";
 
 export const Sidebar = () => {
-  const { MenuState, MenuDispatch } = UseMenu();
+  const isSideMenuOpen = MenuStore((state) => state.isSideMenuOpen);
+  const closeMenu = MenuStore((state) => state.closeSideMenu);
+
   return (
     <div>
       {/* Black Background */}
-      {MenuState.isSideMenuOpen && (
+      {isSideMenuOpen && (
         <div className="fixed top-0 left-0 w-screen h-screen z-10 bg-black opacity-30"></div>
       )}
       {/* Blur */}
-      {MenuState.isSideMenuOpen && (
+      {isSideMenuOpen && (
         <div className="fade-in fixed top-0 left-0 w-screen h-screen z-10 backdrop-filter backdrop-blur-sm"></div>
       )}
       {/* Side Menu */}
@@ -29,14 +31,14 @@ export const Sidebar = () => {
         className={clsx(
           "fixed p-5 right-0 top-0 w-[400px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-700 ease-in",
           {
-            "translate-x-full": !MenuState.isSideMenuOpen,
+            "translate-x-full": !isSideMenuOpen,
           },
         )}
       >
         <IoCloseOutline
           size={30}
           className="absolute top-5 right-5 cursor-pointer"
-          onClick={() => MenuDispatch({ type: "CLOSE_MENU" })}
+          onClick={() => closeMenu()}
         />
 
         {/* Input */}

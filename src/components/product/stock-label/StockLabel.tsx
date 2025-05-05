@@ -1,4 +1,5 @@
 "use client";
+
 import { GetStockBySlug } from "@/actions";
 import { titleFont } from "@/config/font";
 import { useEffect, useState } from "react";
@@ -18,7 +19,6 @@ export const StockLabel = ({ slug }: Props) => {
   const getStock = async () => {
     //TODO: llamar al stock
     const stock = await GetStockBySlug(slug);
-    console.log({ stock });
     setStock(stock!);
     setIsLoading(false);
   };

@@ -8,8 +8,9 @@ interface Props {
 
 export default async function Home({ searchParams }: Props) {
   const { page } = await searchParams;
+
   const pageNumber = page ? parseInt(page) : 1;
-  console.log({ pageNumber });
+
   const { products, totalPages } = await GetPaginatedProductsWithImages({
     page: pageNumber,
   });
@@ -19,10 +20,10 @@ export default async function Home({ searchParams }: Props) {
   }
 
   return (
-    <div>
+    <>
       <Title title="Tienda" subtitle="Todos los Productos" />
       <ProductGrid products={products} />
       <Pagination totalPages={totalPages} />
-    </div>
+    </>
   );
 }
