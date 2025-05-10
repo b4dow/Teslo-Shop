@@ -38,7 +38,10 @@ const CheckoutPage = () => {
                 <div className="">
                   <p>{product.title}</p>
                   <p>{formatCurrency(product.price * 3)}</p>
-                  <QuantitySelector quantity={3} />
+                  <QuantitySelector
+                    quantity={3}
+                    onQuantityChanged={() => null}
+                  />
                 </div>
               </div>
             ))}
@@ -78,7 +81,7 @@ const CheckoutPage = () => {
               <p className="mb-5">
                 {/* Disclaimer */}
                 <span className="text-xs">
-                  Al hacer clic en "Colocar Orden", acepta nuestros{" "}
+                  Al hacer clic en Colocar Orden, acepta nuestros
                   <a href="#" className="underline">
                     términos y condiciones
                   </a>{" "}
